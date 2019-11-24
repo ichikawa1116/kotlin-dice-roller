@@ -3,7 +3,9 @@ package com.example.kotlin_dice_roller
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
+import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,9 +15,12 @@ class MainActivity : AppCompatActivity() {
 
         val rollButton: Button = findViewById(R.id.roll_button)
         rollButton.setOnClickListener { rollDice() }
+
     }
 
     private fun rollDice() {
-        Toast.makeText(this, "button clicked", Toast.LENGTH_SHORT).show()
+        val resultText: TextView = findViewById(R.id.result_text)
+        val randomInt = Random.nextInt(6) + 1
+        resultText.text = randomInt.toString()
     }
 }
